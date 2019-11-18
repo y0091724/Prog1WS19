@@ -1,1 +1,1 @@
-# Prog1WS19
+Example solutions go here
