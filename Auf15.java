@@ -25,7 +25,7 @@ static int höhe = 0; //höhe der Landschaft (entspricht der y-Achse)
 
     public static boolean prüfeAufGültigkeit (String [] kommPara){ //Also wird hier beim Aufruf der Methode im Parameter der Kommandozeilenparamter (args) erwartet.
       breite = Integer.parseInt(kommPara [0]);
-      if(breite == (kommPara.length - 1)){
+      if(breite == (kommPara.length - 1) && breite != 0){
         return true;
       }
       System.out.println("Die angegebene Größe stimmt mit der Anzahl der Elemente nicht ein. Bitte überprüfen sie ihr eingaben.");
