@@ -1,35 +1,38 @@
-public class Auf15{
+/**Dies ist die Hauptklasse zur Erstellung unseres Programmes.
+*
+*@author Colin Engel y0099850
+*@author Nico Schnieders y0091724
+*@version 1.1
+*/
+public class Auf15 {
 
-static int breite = 0; //breite der Landschaft (entspricht der x-Achse)
-static int höhe = 0; //höhe der Landschaft (entspricht der y-Achse)
+    static int breite = 0; //breite der Landschaft (entspricht der x-Achse)
+    static int hoehe = 0; //höhe der Landschaft (entspricht der y-Achse)
 
-    public static void main (String []args){
-      if (prüfeAufGültigkeit (args)){
-        char[][] landschaft = arrayErstellen(args);
-        arrayFüllen(landschaft, args);
-        arrayAusgabe(landschaft);
-        System.out.println("Die Menge an Wasser beträgt " + wasserBerechnen(landschaft));
-        arrayAusgabe(landschaft);
-      }
+    public static void main(String[]args) {
+        if (pruefeAufGueltigkeit(args)) {
+            char[][] landschaft = arrayErstellen(args);
+            arrayFuellen(landschaft, args);
+            arrayAusgabe(landschaft);
+            System.out.println("Die Menge an Wasser beträgt " + wasserBerechnen(landschaft));
+            arrayAusgabe(landschaft);
+        }
     }
-
+    //Im folgenenden Code wurde kommPara als abkürzung für Kommandozeilenparameter verwendet.
     /**
     *Prüft die Gültigkeit des Kommandozeilenparameter. Also ob das erste Element gleich der Länge von dem Array im Parameter - 1 ist,
     *weil das erste Element die breite der Landschaft beschreibt.
     *@param kommPara Die Kommandozeilenparameter
     *@return Wahr für eine gültige Kommandozeilenparameter und falsch für einen nicht gültigen Kommandozeilenparameter
     */
-
-
-    //Im folgenenden Code wurde kommPara als abkürzung für Kommandozeilenparameter verwendet.
-
-    public static boolean prüfeAufGültigkeit (String [] kommPara){ //Also wird hier beim Aufruf der Methode im Parameter der Kommandozeilenparamter (args) erwartet.
-      breite = Integer.parseInt(kommPara [0]);
-      if(breite == (kommPara.length - 1) && breite != 0){
-        return true;
-      }
-      System.out.println("Die angegebene Größe stimmt mit der Anzahl der Elemente nicht ein. Bitte überprüfen sie ihr eingaben.");
-      return false;
+    public static boolean pruefeAufGueltigkeit(String[] kommPara) {
+      //Hier beim Aufruf der Methode im Parameter der Kommandozeilenparamter (args) erwartet.
+        breite = Integer.parseInt(kommPara[0]);
+        if (breite == (kommPara.length - 1) && breite != 0) {
+            return true;
+        }
+        System.out.println("Die angegebene Größe stimmt mit der Anzahl der Elemente nicht ein. Bitte überprüfen sie ihr eingaben.");
+        return false;
     }
 
     /**
@@ -38,16 +41,16 @@ static int höhe = 0; //höhe der Landschaft (entspricht der y-Achse)
     *@return Ein 2d Array vom Typ char mit der im Kommandozeilenparameter Breite und der Höhe vom größten angegeben Element(außer dem ersten)
     */
 
-    public static char[][] arrayErstellen(String [] kommPara){
-      höhe = 0;
-      for (int x = 1; x < kommPara.length; x++){ //Ermittlung des größten Elements mit die Größe des Arrays klar ist.
-        int i = Integer.parseInt(kommPara[x]);
-        if (höhe < i){
-          höhe = i;
+    public static char[][] arrayErstellen(String[] kommPara) {
+        hoehe = 0;
+        for (int x = 1; x < kommPara.length; x++) { //Ermittlung des größten Elements mit die Größe des Arrays klar ist.
+            int i = Integer.parseInt(kommPara[x]);
+            if (hoehe < i) {
+                hoehe = i;
+            }
         }
-      }
-      char[][] landschaft = new char [breite][höhe];
-      return landschaft;
+        char[][] landschaft = new char[breite][hoehe];
+        return landschaft;
     }
 
     /**
@@ -56,18 +59,18 @@ static int höhe = 0; //höhe der Landschaft (entspricht der y-Achse)
     *@param kommPara Enspricht dem Kommandozeilenparameter. Damit wird das Array landschaft gefüllt
     */
 
-    public static void arrayFüllen(char[][] landschaft, String[] kommPara){
-      for(int x = 0; x < breite; x++){
-        int inhalt = Integer.parseInt(kommPara[x+1]); //x+1, weil das erste Element in dem Kommandozeilenparameter die Breite angibt und kein Inhalt von der Landschaft ist
-        for(int y = 0;y < höhe; y++){
-          if(inhalt > y){
-            landschaft[x][y] = 'X'; //'X' für einen Block s. Abb. 2
-          }
-          else{
-            landschaft[x][y] = ' '; //' ' für keinen Block
-          }
+    public static void arrayFuellen(char[][] landschaft, String[] kommPara)   {
+        for (int x = 0; x < breite; x++) {
+            int inhalt = Integer.parseInt(kommPara[x + 1]);
+            //x+1, weil das erste Element in dem Kommandozeilenparameter die Breite angibt und kein Inhalt von der Landschaft ist
+            for (int y = 0; y < hoehe; y++) {
+                if (inhalt > y) {
+                    landschaft[x][y] = 'X';  //'X' für einen Block s. Abb. 2
+                }   else {
+                    landschaft[x][y] = ' '; //' ' für keinen Block
+                }
+            }
         }
-      }
     }
 
     /**
@@ -75,13 +78,13 @@ static int höhe = 0; //höhe der Landschaft (entspricht der y-Achse)
     *@param landschaft Ein Array vom Datentyp char welches das im Kommandoteilenparameter angegebene Landschaft beschreibt.
     */
 
-    public static void arrayAusgabe(char[][] landschaft){
-      for(int y = landschaft[0].length - 1; y >= 0; y--){
-        for(int x = 0; x < landschaft.length; x++){
-          System.out.print(landschaft[x][y] + " ");
+    public static void arrayAusgabe(char[][] landschaft) {
+        for (int y = landschaft[0].length - 1; y >= 0; y--) {
+            for (int x = 0; x < landschaft.length; x++) {
+                System.out.print(landschaft[x][y] + " ");
+            }
+            System.out.println();
         }
-        System.out.println();
-      }
     }
 
     /**
@@ -90,30 +93,33 @@ static int höhe = 0; //höhe der Landschaft (entspricht der y-Achse)
     *@return Die Menge an Wasser die in die Landschaft reinpasst.
     */
 
-    public static int wasserBerechnen(char[][] landschaft){
-      int wasser = 0;     //feststehendes Wasser
-      if (breite <= 2){   //schließt den Fall aus dass das Array nur 2 Breit ist, wo die Wassermenge = 0 ist
-        return 0;
-      }
-      for (int x = 0; x + 2 < breite; x++){   //x + 2 weil wenn wir x überprüfen ob dort ein Block ist muss x+2 noch in dem Bereich vom Array liegen
-        for (int y = 0; y < höhe; y++){
-          if(landschaft[x][y] == 'X' && landschaft[x+1][y] == ' '){     //wenn [x][y] ein Block ist und der Block rechts daneben [x + 1][y] kein Block ist
-            int möglichesWasser = 0;
-            int zählerRechts = 0;
-            while(x + 1 + zählerRechts < breite && landschaft[x + 1 + zählerRechts][y] == ' '){   //solange x + 1 + unseren Zähler noch im Bereich unseres Array liegt und [x + 1 + z][y] kein Block ist
-              möglichesWasser++;    //wird unser mögliches Wasser erhöht
-              zählerRechts++;                  //und unser Zähler wie wir uns nach rechts bewegen erhöht
-            }        //nun wurde die While-Schleife entweder abgebrochen, weil wir außerhalb des Arrays sind oder wir einen Block erreicht haben [x + 1 + z][y] = 'X'
-            if(x + 1 + zählerRechts < breite){  //wenn wir noch im Bereich des Arrays sind
-              for(int a = x + 1; a < x + zählerRechts + 1;a++){  //hier setzten wir nun im Array '~' ein wo Wasser ist
-                  landschaft[a][y] = '~';
-              }
-              wasser = wasser + möglichesWasser;    //das festehende Wasser wird erhöht
-            }
-          }
+    public static int wasserBerechnen(char[][] landschaft) {
+        int wasser = 0;     //feststehendes Wasser
+        if (breite <= 2) {   //schließt den Fall aus dass das Array nur 2 Breit ist, wo die Wassermenge = 0 ist
+            return 0;
         }
-      }
-      return wasser;
+        for (int x = 0; x + 2 < breite; x++) { //x + 2 weil wenn wir x überprüfen ob dort ein Block ist muss x+2 noch in dem Bereich vom Array liegen
+            for (int y = 0; y < hoehe; y++) {
+                if (landschaft[x][y] == 'X' && landschaft[x + 1][y] == ' ') {
+              //wenn [x][y] ein Block ist und der Block rechts daneben [x + 1][y] kein Block ist
+                    int moeglichesWasser = 0;
+                    int zaehlerRechts = 0;
+                    while (x + 1 + zaehlerRechts < breite && landschaft[x + 1 + zaehlerRechts][y] == ' ') {
+                         //solange x + 1 + unseren Zähler noch im Bereich unseres Array liegt und [x + 1 + z][y] kein Block ist
+                        moeglichesWasser++;    //wird unser mögliches Wasser erhöht
+                        zaehlerRechts++;                  //und unser Zähler wie wir uns nach rechts bewegen erhöht
+                    }
+//nun wurde die While-Schleife entweder abgebrochen, weil wir außerhalb des Arrays sind oder wir einen Block erreicht haben [x + 1 + z][y] = 'X'
+                    if (x + 1 + zaehlerRechts < breite) {  //wenn wir noch im Bereich des Arrays sind
+                        for (int a = x + 1; a < x + zaehlerRechts + 1; a++) {  //hier setzten wir nun im Array '~' ein wo Wasser ist
+                            landschaft[a][y] = '~';
+                        }
+                        wasser = wasser + moeglichesWasser;    //das festehende Wasser wird erhöht
+                    }
+                }
+            }
+        }
+        return wasser;
     }
 
 }
