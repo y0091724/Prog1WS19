@@ -6,8 +6,8 @@
 */
 public class Auf15 {
 
-    static int breite = 0; //breite der Landschaft (entspricht der x-Achse)
-    static int hoehe = 0; //höhe der Landschaft (entspricht der y-Achse)
+    private static int breite = 0; //breite der Landschaft (entspricht der x-Achse)
+    private static int hoehe = 0; //höhe der Landschaft (entspricht der y-Achse)
 
     public static void main(String[]args) {
         if (pruefeAufGueltigkeit(args)) {
@@ -24,16 +24,17 @@ public class Auf15 {
     *weil das erste Element die breite der Landschaft beschreibt.
     *@param kommPara Die Kommandozeilenparameter
     *@return Wahr für eine gültige Kommandozeilenparameter und falsch für einen nicht gültigen Kommandozeilenparameter
-    */
+    */ 
+
     public static boolean pruefeAufGueltigkeit(String[] kommPara) {
       //Hier beim Aufruf der Methode im Parameter der Kommandozeilenparamter (args) erwartet.
-      if (kommPara.length != 0) {
-          breite = Integer.parseInt(kommPara[0]);
-          if (breite == (kommPara.length - 1) && breite != 0) {
-              return true;
-          }
-      }
-        System.out.println("Die angegebene Größe stimmt mit der Anzahl der Elemente nicht ein. Bitte überprüfen sie ihr eingaben.");
+      	if (kommPara.length != 0) {
+            breite = Integer.parseInt(kommPara[0]);
+            if (breite == (kommPara.length - 1) && breite != 0) {
+                return true;
+            }
+        }
+        System.out.println("Die angegebene Größe stimmt mit der Anzahl der Elemente nicht ein. Bitte überprüfen Sie ihre Eingaben.");
         return false;
     }
 
@@ -45,7 +46,7 @@ public class Auf15 {
 
     public static char[][] arrayErstellen(String[] kommPara) {
         hoehe = 0;
-        for (int x = 1; x < kommPara.length; x++) { //Ermittlung des größten Elements mit die Größe des Arrays klar ist.
+        for (int x = 1; x < kommPara.length; x++) { //Ermittlung des größten Elements damit die Größe des Arrays klar ist.
             int i = Integer.parseInt(kommPara[x]);
             if (hoehe < i) {
                 hoehe = i;
