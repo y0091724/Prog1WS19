@@ -27,10 +27,12 @@ public class Auf15 {
     */
     public static boolean pruefeAufGueltigkeit(String[] kommPara) {
       //Hier beim Aufruf der Methode im Parameter der Kommandozeilenparamter (args) erwartet.
-        breite = Integer.parseInt(kommPara[0]);
-        if (breite == (kommPara.length - 1) && breite != 0) {
-            return true;
-        }
+      if (kommPara.length != 0) {
+          breite = Integer.parseInt(kommPara[0]);
+          if (breite == (kommPara.length - 1) && breite != 0) {
+              return true;
+          }
+      }
         System.out.println("Die angegebene Größe stimmt mit der Anzahl der Elemente nicht ein. Bitte überprüfen sie ihr eingaben.");
         return false;
     }
