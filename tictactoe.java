@@ -1,16 +1,47 @@
+import java.util.Scanner;
+
 public class tictactoe {
 
     public static void main (String[] args) {
         char[][] feld = new char [5][5];
-        feld[0][0] = 'O';
-        feld[0][1] = 'O';
-        feld[0][2] = 'O';
-        feld[0][3] = 'O';
-        feld[0][4] = 'O';
-        if(ueberpruefen (feld))
+        feld = start();
+        int spieler = 25;
+        /*for(int x = 0; x < 5; x ++)
         {
-          System.out.println("Gewinner");
+          for(int y = 0; y < 5; y ++)
+          {
+            System.out.println(feld[x][y]);
+          }
+        */
+        while (!ueberpruefen(feld)) {
+            zug(feld, spieler);
+            feldAusgeben(feld);
         }
+        System.out.println("Gewonnen");
+    }
+
+    public static void feldAusgeben (char[][] feld) {
+        System.out.print("-----------");
+        for (int x = 0; x < 5; x++) {
+            System.out.println();
+            for (int y = 0; y < 5; y++) {
+                System.out.print("|" + feld[x][y]);
+            }
+            System.out.println("|");
+            System.out.print("-----------");
+
+        }
+        System.out.println();
+    }
+
+    public static char[][] start () {
+        char[][] feld = new char[5][5];
+        for (int x = 0; x < 5; x++) {
+          for (int y = 0; y < 5; y++) {
+            feld[x][y] = ' ';
+          }
+        }
+        return feld;
     }
 
     public static boolean ueberpruefen (char[][] feld) {
