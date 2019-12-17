@@ -6,35 +6,36 @@ public class tictactoe {
 
     public static void main (String[] args) {
          spielbrett = new String[25];
-         String spieler = "0";
+         String spieler = "O";
          String gewinner = null;
          brettFuellen(spielbrett);
-         while(gewinnerUeberprufen() == null){
-            spielerWechsel(spieler);
+         while(gewinnerUeberprufen() == null) {
+            spieler = spielerWechsel(spieler);
             System.out.println("Jetzt am Zug: " + spieler);
             feldAusgeben(spielbrett);
             spielzug(spielbrett, spieler);
          }
+         feldAusgeben(spielbrett);
          if(gewinnerUeberprufen().equals("unentschieden")) {
             System.out.println("Es ist unentschieden");
          }
-         else{
-            System.out.println("Gewonnen hat " + spieler);
+         else {
+            System.out.println("Gewonnen hat Spieler " + spieler);
          }
-
     }
 
 
     public static void feldAusgeben (String[] spielbrett) { //* gibt das Brett in 5x5 Form aus
-    System.out.println ("|" + spielbrett[0] + "|" + spielbrett[1] + "|" + spielbrett[2] + "|" + spielbrett[3] + "|" + spielbrett[4] + "|");
-    System.out.println ("-----------");
-    System.out.println ("|" + spielbrett[5] + "|" + spielbrett[6] + "|" + spielbrett[7] + "|" + spielbrett[8] + "|" + spielbrett[9] + "|");
-    System.out.println ("-----------");
-    System.out.println ("|" + spielbrett[10] + "|" + spielbrett[11] + "|" + spielbrett[12] + "|" + spielbrett[13] + "|" + spielbrett[14] + "|");
-    System.out.println ("-----------");
-    System.out.println ("|" + spielbrett[15] + "|" + spielbrett[16] + "|" + spielbrett[17] + "|" + spielbrett[18] + "|" + spielbrett[19] + "|");
-    System.out.println ("-----------");
-    System.out.println ("|" + spielbrett[20] + "|" + spielbrett[21] + "|" + spielbrett[22] + "|" + spielbrett[23] + "|" + spielbrett[24] + "|");
+        System.out.println ("|" + spielbrett[0] + "|" + spielbrett[1] + "|" + spielbrett[2] + "|" + spielbrett[3] + "|" + spielbrett[4] + "|");
+        System.out.println ("-----------");
+        System.out.println ("|" + spielbrett[5] + "|" + spielbrett[6] + "|" + spielbrett[7] + "|" + spielbrett[8] + "|" + spielbrett[9] + "|");
+        System.out.println ("-----------");
+        System.out.println ("|" + spielbrett[10] + "|" + spielbrett[11] + "|" + spielbrett[12] + "|" + spielbrett[13] + "|" + spielbrett[14] + "|");
+        System.out.println ("-----------");
+        System.out.println ("|" + spielbrett[15] + "|" + spielbrett[16] + "|" + spielbrett[17] + "|" + spielbrett[18] + "|" + spielbrett[19] + "|");
+        System.out.println ("-----------");
+        System.out.println ("|" + spielbrett[20] + "|" + spielbrett[21] + "|" + spielbrett[22] + "|" + spielbrett[23] + "|" + spielbrett[24] + "|");
+        System.out.println();
     }
 
 	public static void brettFuellen (String[] spielbrett) {  //* nummeriert die einzelnen Felder des Spielfeldes
@@ -43,13 +44,14 @@ public class tictactoe {
           }
   }
 
-  public static void spielerWechsel (String spieler) {
+  public static String spielerWechsel (String spieler) {
       if (spieler.equals("X")) {
           spieler = "O";
       }
-      if (spieler.equals("O")) {
+      else{
           spieler = "X";
       }
+      return spieler;
   }
 
   public static void spielzug(String[] spielbrett, String spieler) {
@@ -58,6 +60,11 @@ public class tictactoe {
         Scanner sc2 = new Scanner (System.in);
         int reihe = sc1.nextInt();
         int spalte = sc2.nextInt();
+        while (reihe >= 5 || spalte >= 5) {
+            System.out.println("Etwas stimmt mit deinen Eingaben nicht. Versuche es nochmal:");
+            reihe = sc1.nextInt();
+            spalte = sc2.nextInt();
+        }
         spielbrett[reihe * 5 + spalte] = spieler;
   }
 
