@@ -9,7 +9,7 @@ import java.util.Scanner;
 */
 public class Tictactoe {
 
-    private static String[] spielbrett; 
+    private static String[] spielbrett;
 
     public static void main(String[] args) {
         spielbrett = new String[25]; //array als spielbrett
@@ -34,7 +34,7 @@ public class Tictactoe {
         }
         feldAusgeben(spielbrett);
         if (gewinnerUeberprufen().equals("unentschieden")) {
-            System.out.println("Unentschieden!"); 
+            System.out.println("Unentschieden!");
 	    } else {
             spieler = spielerWechsel(spieler);
             System.out.println("Gewonnen hat Spieler " + spieler);
@@ -44,7 +44,7 @@ public class Tictactoe {
 /** Method zur Ausgabe des 1-dimensionalen arrays als Brett mit Zeilenversatz
 *@param spielbrett das array, welches das Spielbrett beschreibt
 */
-    public static void feldAusgeben(String[] spielbrett) { 
+    public static void feldAusgeben(String[] spielbrett) {
         System.out.println("|" + spielbrett[0] + "|" + spielbrett[1] + "|" + spielbrett[2] + "|" + spielbrett[3] + "|" + spielbrett[4] + "|");
         System.out.println("-----------");
         System.out.println("|" + spielbrett[5] + "|" + spielbrett[6] + "|" + spielbrett[7] + "|" + spielbrett[8] + "|" + spielbrett[9] + "|");
@@ -59,7 +59,7 @@ public class Tictactoe {
 /** Methode welche die einzelnen Eintraege des Brettes initialisiert
 *@param spielbrett array des spielbrettes
 */
-	public static void brettFuellen(String[] spielbrett) {  
+	public static void brettFuellen(String[] spielbrett) {
         for (int a = 0; a < 25; a++) {
         	spielbrett[a] = " ";
         }
@@ -90,29 +90,18 @@ public class Tictactoe {
             System.out.println("Etwas stimmt mit deinen Eingaben nicht.");
             return false;
         }
-        if (spielbrett[zeile * 5 + spalte] != (' ')) {
+        if (spielbrett[zeile * 5 + spalte] != (" ")) {
             System.out.println("Diese Stelle ist schon besetzt. 	 ");
             return false;
         }
         return true;
     }
-/** Methode zur durchfuerung von spielzuegen
-*@param spielbrett das feld auf welchem gespielt wird
-*@param zeile die zeileneingabe
-*@param spalte die spalteneingabe
-*@param spieler welcher den spieler speichert
-*/
-    public static void spielzug(String[] spielbrett, String spieler, int zeile, int spalte) {
-        spielbrett[zeile * 5 + spalte] = spieler;
-    }
 /**
 *Methode zur ueberpruefung des gewinners
-*@param detektor in welchem je nach switch case der horizontale, vertikale oder diagonale 
-zustand des bretts gespeichert ist
 @return X fuer X hat gewonnen, 0 fuer 0 hat gewonnen, unentschieden fuer unentschieden,
 null fuer niemand hat bis jetzt gewonnen
 */
-    public static String gewinnerUeberprufen(detektor) {  
+    public static String gewinnerUeberprufen() {
         for (int a = 0; a < 13; a++) {
             String detektor = "";
        		switch (a) {
@@ -161,7 +150,7 @@ null fuer niemand hat bis jetzt gewonnen
     			}
             }
         }
-     	for (int a = 0; a < 24; a++) {  
+     	for (int a = 0; a < 24; a++) {
             if (spielbrett[a] == (" ")) {
     		    break;
             } else {
