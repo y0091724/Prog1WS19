@@ -6,20 +6,31 @@ public class tictactoe {
 
     public static void main (String[] args) {
          spielbrett = new String[25];
-         String spieler = "O";
+         String spieler = "X";
          String gewinner = null;
+         Scanner sc1 = new Scanner (System.in);
+         Scanner sc2 = new Scanner (System.in);
+         int reihe = 0;
+         int spalte = 0;
          brettFuellen(spielbrett);
+         feldAusgeben(spielbrett);
          while(gewinnerUeberprufen() == null) {
-            spieler = spielerWechsel(spieler);
             System.out.println("Jetzt am Zug: " + spieler);
-            feldAusgeben(spielbrett);
-            spielzug(spielbrett, spieler);
+            System.out.println("Bitte die Koordinate (Reihe und Spalte, jeweils 0-4) eingeben:");
+            reihe = sc1.nextInt();
+            spalte = sc2.nextInt();
+            if (eingabeUeberpruefen(reihe, spalte)) {
+                spielbrett[reihe * 5 + spalte] = spieler;
+                feldAusgeben(spielbrett);
+                spieler = spielerWechsel(spieler);
+            }
          }
          feldAusgeben(spielbrett);
          if(gewinnerUeberprufen().equals("unentschieden")) {
-            System.out.println("Es ist unentschieden");
+            System.out.println("Unentschieden!");
          }
          else {
+            spieler = spielerWechsel(spieler);
             System.out.println("Gewonnen hat Spieler " + spieler);
          }
     }
@@ -54,17 +65,23 @@ public class tictactoe {
       return spieler;
   }
 
-  public static void spielzug(String[] spielbrett, String spieler) {
-        System.out.println("Bitte die Koordinate (Reihe und Spalte, jeweils 0-4) eingeben:");
-        Scanner sc1 = new Scanner (System.in);
-        Scanner sc2 = new Scanner (System.in);
-        int reihe = sc1.nextInt();
-        int spalte = sc2.nextInt();
-        while (reihe >= 5 || spalte >= 5) {
-            System.out.println("Etwas stimmt mit deinen Eingaben nicht. Versuche es nochmal:");
-            reihe = sc1.nextInt();
-            spalte = sc2.nextInt();
-        }
+  public static boolean eingabeUeberpruefen (int reihe, int spalte) {
+      if (reihe >= 5 || spalte >= 5) {
+          System.out.println("Etwas stimmt mit deinen Eingaben nicht.");
+          return false;
+      }
+      if (reihe < 0 || spalte < 0) {
+        System.out.println("Etwas stimmt mit deinen Eingaben nicht.");
+        return false;
+      }
+      if (spielbrett[reihe * 5 + spalte] != " "){
+        System.out.println("Diese Stelle ist schon ");
+        return false;
+      }
+      return true;
+  }
+
+  public static void spielzug (String[] spielbrett, String spieler, int reihe, int spalte) {
         spielbrett[reihe * 5 + spalte] = spieler;
   }
 
