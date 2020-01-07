@@ -1,0 +1,4 @@
+
+class Landmine extends Feld {
+  
+}
