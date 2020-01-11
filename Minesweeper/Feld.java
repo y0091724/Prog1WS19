@@ -1,13 +1,18 @@
 
 abstract public class Feld {
 
-    private int anzMin;
+    protected int anzMin = 0;
     private boolean aufgedeckt = false;
+    //abstract public void setAnzMin(int x);
+    //abstract public int getAnzMin();
 
     public int getAnzMin() {
         return anzMin;
     }
-    abstract public void setAnzMin(int x);
+
+    public void setAnzMin(int x) {
+        anzMin = x;
+    }
 
     public boolean getAufgedeckt() {
         return aufgedeckt;
