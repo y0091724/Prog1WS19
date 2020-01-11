@@ -1,13 +1,20 @@
 
 public class NormalesFeld extends Feld {
 
-    private int anzMin;
+      //private int anzMin ;
 
-    NormalesFeld (int anzahlMinen) {
-        this.anzMin = anzahlMinen;
-    }
+      public NormalesFeld() {
+      }
 
-    public void setAnzMin(int x) {
-      anzMin = x;
-    }
+      /*public void setAnzMin(int x) {
+        System.out.println("Start " + anzMin);
+        System.out.println(x);
+        System.out.println(anzMin + 1);
+        System.out.println(anzMin);
+      }
+
+      public int getAnzMin() {
+        return anzMin;
+      }
+      */
 }
