@@ -13,10 +13,6 @@ public class Spielfeld {
         erschaffeFeld();
     }
 
-    public int getSpielfeldLength() {
-      return spielfeld.length;
-    }
-
     public Feld[][] getSpielfeld() {
         return spielfeld;
     }
