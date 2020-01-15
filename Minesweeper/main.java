@@ -7,11 +7,14 @@ public class main {
       spiel.ausgabe();
       while(spiel.spielzug() && !spiel.gewinnerUeberpruefen()) {
           spiel.ausgabe();
+          System.println();
       }
       if(spiel.gewinnerUeberpruefen()) {
         System.out.println("Sie haben gewonnen!!");
       }
-      System.out.println("Sie haben verloren, weil sie ein Feld mit Mine betreten haben.");
+      else {
+          System.out.println("Sie haben verloren, weil sie ein Feld mit Mine betreten haben.");
+      }
   }
 
 }
