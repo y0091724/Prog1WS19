@@ -35,14 +35,14 @@ public class Spielfeld {
             }
         }
         for(int zaehler = 0; zaehler < v; zaehler++) {
-          int zahl1 = (int) (Math.random() * 10);
-          int zahl2 = (int) (Math.random() * 10);
-          if(spielfeld[zahl1][zahl2] instanceof NormalesFeld && spielfeld[zahl1][zahl2].getAufgedeckt() == false) {
-              spielfeld[zahl1][zahl2].setAufgedeckt(true);
-          }
-          else {
-              zaehler--;
-          }
+            int zahl1 = (int) (Math.random() * 10);
+            int zahl2 = (int) (Math.random() * 10);
+            if(spielfeld[zahl1][zahl2] instanceof NormalesFeld && spielfeld[zahl1][zahl2].getAufgedeckt() == false) {
+                spielfeld[zahl1][zahl2].setAufgedeckt(true);
+            }
+            else {
+                zaehler--;
+            }
         }
     }
 
