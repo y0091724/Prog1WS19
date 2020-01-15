@@ -81,30 +81,6 @@ public class Spielverlauf {
       return true;
   }
 
-  /*public boolean spielzug() {
-      Scanner eingabeKo = new Scanner(System.in);
-      Scanner eingabeAkt = new Scanner(System.in);
-      int ergebnis = 2;
-      while(ergebnis == 2) {
-          System.out.println("Geben sie die nächsten Koordinaten ein (z.B. H4): ");
-          eingabeKo.useDelimiter("");
-          Koordinaten ko = new Koordinaten(eingabeKo.next().charAt(0), eingabeKo.nextInt());
-          while(!ko.korrektheit()) {
-              Scanner eingabeKo2 = new Scanner(System.in);
-              eingabeKo2.useDelimiter("");
-              System.out.println("Ihre Eingaben stimmen nicht. Versuchen sie es erneut: ");
-              ko = new Koordinaten(eingabeKo2.next().charAt(0), eingabeKo2.nextInt());
-          }
-          System.out.println("Geben sie ihre naechste Aktion ein (1 für 'aufdecken', 2 fuer 'entschaerfen'): ");
-          ergebnis = eingabeAkt.nextInt();
-      }
-      if(ergebnis == 0) {
-          return false;
-      }
-      return true;
-  }
-  */
-
   public int aufdecken(Koordinaten ko) {
       int spalte = ko.getSpalte();
       int reihe = ko.getReihe();
