@@ -1,9 +1,10 @@
 import java.util.Scanner;
-/**Klasse um den Spielverlauf zu implementieren
-*/
+//Klasse um den Spielverlauf zu implementieren
+
 public class Spielverlauf {
 
     private Spielfeld feld;
+
 /**Methode um den momentanen Spielzustand festzuhalten
 @param n Anzahl der Felder des Brettes
 @param x Anzahl der Minen
@@ -12,6 +13,7 @@ public class Spielverlauf {
     public Spielverlauf(int n, int x, int v) {
         feld = new Spielfeld(n, x, v);
     }
+
 /** Methode zum Ausgeben des Feldes
 */
     public void ausgabe() {
@@ -33,9 +35,11 @@ public class Spielverlauf {
             System.out.println();
         }
     }
+
 /**Methode zum ueberpruefen ob gewonnen wurde
 *@return true falls gewonnen wurde, false wenn verloren wurde
 */
+
     public boolean gewinnerUeberpruefen() {
         for (int zaehler1 = 0; zaehler1 < feld.getSpielfeld().length; zaehler1++) {
             for (int zaehler2 = 0; zaehler2 < feld.getSpielfeld().length; zaehler2++) {
@@ -46,9 +50,11 @@ public class Spielverlauf {
         }
         return true;
     }
+
 /**Methode um den Spielzug durchzufueren
 *@return true falls der Spielzug korrekt durchgefuehrt wurde, false falls man auf eine Mine trat
 */
+
     public boolean spielzug() {
         Scanner eingabeKo = new Scanner(System.in);
         System.out.println("Geben sie die nächsten Koordinaten ein (z.B. H4): ");
@@ -88,10 +94,12 @@ public class Spielverlauf {
         }
         return true;
     }
+
 /**Methode zum Aufdecken des betretenen Feldes
 *@return 0 falls man eine Mine aufdeckte, 1 falls man ein normales Feld aufdeckte, 2 falls das Feld schon aufgedeckt ist
 *@param ko fuer die Koordinaten des momentanen Feldes
 */
+
     public int aufdecken(Koordinaten ko) {
         int spalte = ko.getSpalte();
         int reihe = ko.getReihe();
@@ -107,6 +115,7 @@ public class Spielverlauf {
         }
         return 2;
     }
+
 /**Methode zum Entschaerfen einer Mine
 @param ko fuer die Koordiaten des momentanen Feldes
 @return 2 falls das Feld schon aufgedeckt ist, 1 wenn das Feld eine Mine enthaelt,0 wenn das Feld keine Mine enthaelt
@@ -124,8 +133,10 @@ public class Spielverlauf {
 
         return 0;
     }
+
 /**Methode um das komplette Feld auszugeben
 */
+
     public void ausgabeVoll() {
         System.out.println(" |A|B|C|D|E|F|G|H|I|J");
         for (int zaehler1 = 0; zaehler1 < feld.getSpielfeld().length; zaehler1++) {
