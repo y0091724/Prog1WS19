@@ -6,6 +6,7 @@ public class Spielfeld {
     private int x;  //verminte Felder
     private int v;  //initial aufgedeckten Felder
     private Feld[][] spielfeld;
+
 /**Methode welche das Spielfeld initialisiert
 *@param groesse fuer maximale anzahl der felder
 *@param verminteFelder die Anzahl der verminten Felder
@@ -21,6 +22,7 @@ public class Spielfeld {
     public Feld[][] getSpielfeld() {
         return spielfeld;
     }
+
 /**Methode um die tatsaechliche Initialisierung zu realisieren
 */
     public void erschaffeFeld() {
@@ -49,9 +51,10 @@ public class Spielfeld {
             }
         }
     }
-/** Methode um die Minen im Feld zu verteilen
-*@param hoehe zeile des Spielfeldes
-*@param breite spalte des Spielfeldes
+
+/** Methode um die Anzahl der Minen in der Nähe in den Umgebenen Felder zu erhöhen
+*@param hoehe zeile wo die Mine gesetzt wird
+*@param breite spalte wo die Mine gesetzt wird 
 */
     public void mineSetzen(int hoehe, int breite) {
         spielfeld[hoehe][breite] = new Landmine();
