@@ -1,40 +1,27 @@
-
+/** abstrakte Klasse für die einzelnen Feldtypen, da per Interface keine Attribute übergeben werden
+*/ 
 abstract public class Feld {
 
     private boolean aufgedeckt;
-    protected int anzMin = 0;
+    private int anzMin = 0;
 
-    abstract public void setAnzMin(int x);
+/**Methode um die Anzahl Minen zu veraendern
+@param x anzahl der minen
+*/
+    abstract public void setAnzMin(int x); 
+/**Methode um die Anzahl der Minen zu exportieren
+@return Anzahl der Minen
+*/    
     abstract public int getAnzMin();
-
+/**Methode um die Anzahl der aufgedeckten Felder zu exportieren
+*@return aufgedeckte Anahl Felder
+*/
     public boolean getAufgedeckt() {
-        return aufgedeckt;
+        return aufgedeckt; x
     }
 
     public void setAufgedeckt(boolean x) {
         aufgedeckt = x;
     }
-
-    /*
-    private int anzMin = 0;
-    private boolean aufgedeckt = false;
-
-    public int getAnzMin() {
-        return anzMin;
-    }
-
-    public void setAnzMin(int x) {
-        anzMin = x;
-    }
-
-    public boolean getAufgedeckt() {
-        return aufgedeckt;
-    }
-
-    public boolean setAufgedeckt(boolean x) {
-        aufgedeckt = x;
-        return aufgedeckt;
-    }
-    */
-
 }
+ 

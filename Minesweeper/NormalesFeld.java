@@ -1,10 +1,9 @@
-
+/**Klasse für den Feldtyp ohne Minen
+*/
 public class NormalesFeld extends Feld {
 
-    //private int anzMin = 0;
-
     public void setAnzMin(int x) {
-          anzMin = x;
+        anzMin = x;
     }
 
     public int getAnzMin() {
@@ -14,6 +13,6 @@ public class NormalesFeld extends Feld {
 
 
 
-      //  public NormalesFeld() {}
+   
 
 }
