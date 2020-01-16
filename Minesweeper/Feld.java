@@ -3,7 +3,7 @@
 abstract public class Feld {
 
     private boolean aufgedeckt;
-    private int anzMin = 0;
+    protected int anzMin = 0;
 
 /**Methode um die Anzahl Minen zu veraendern
 @param x anzahl der minen
