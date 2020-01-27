@@ -14,5 +14,6 @@ public class main {
           System.out.println(baum.height());
           System.out.println(baum.exist(23));
           System.out.println(baum.min());
+          System.out.println(baum.max());
       }
 }
