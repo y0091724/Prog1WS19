@@ -6,14 +6,16 @@ public class main {
           BinaererBaum baum = new BinaererBaum(10);
           //baum.insert(9);
           baum.insertIterative(9);
-          baum.insertIterative(12);
-          baum.insertIterative(4);
           baum.insertIterative(8);
-          baum.insertIterative(22);
+          baum.insertIterative(5);
+          baum.insertIterative(3);
+          baum.insertIterative(4);
+
           System.out.println(baum.toString());
           System.out.println(baum.height());
           System.out.println(baum.exist(23));
           System.out.println(baum.min());
           System.out.println(baum.max());
+          System.out.println(baum.isDegenerate());
       }
 }
