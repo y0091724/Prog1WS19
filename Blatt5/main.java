@@ -7,11 +7,12 @@ public class main {
           //baum.insert(9);
           baum.insertIterative(9);
           baum.insertIterative(12);
-          baum.insertIterative(11);
+          baum.insertIterative(4);
           baum.insertIterative(8);
           baum.insertIterative(22);
           System.out.println(baum.toString());
           System.out.println(baum.height());
           System.out.println(baum.exist(23));
+          System.out.println(baum.min());
       }
 }
