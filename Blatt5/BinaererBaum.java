@@ -28,11 +28,8 @@ public class BinaererBaum {
                     baumL.insert(nWert);
                 }
             }
-            else {
-                if(wert == nWert) {
-                    //Was macht Sinn?
-                }
-            }
+       
+           
         }
     }
 
@@ -61,12 +58,9 @@ public class BinaererBaum {
                         baum = baum.getBaumL();
                     }
                 }
-                else {
-                    if(baum.getWert() == nWert) {
-                      //Was macht Sinn?
-                    }
+                
                 }
-            }
+            
         }
     }
 
@@ -168,6 +162,8 @@ public class BinaererBaum {
         }
         return false;
     }
+
+		interface praedikat {
 
     public String toString() {
         String links;
