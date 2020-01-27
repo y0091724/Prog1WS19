@@ -127,6 +127,15 @@ public class BinaererBaum {
         }
     }
 
+    public int min() {
+        BinaererBaum baum = this;
+        while(baum.getBaumL() != null) {
+            baum = baum.getBaumL();
+            System.out.println("A");
+        }
+        return baum.getWert();
+    }
+
     public boolean isLeaf() {
         if(baumL == null && baumR == null) {
             return true;
