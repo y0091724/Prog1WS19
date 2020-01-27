@@ -12,5 +12,6 @@ public class main {
           baum.insertIterative(22);
           System.out.println(baum.toString());
           System.out.println(baum.height());
+          System.out.println(baum.exist(23));
       }
 }
