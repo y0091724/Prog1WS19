@@ -127,11 +127,18 @@ public class BinaererBaum {
         }
     }
 
+    public int max() {
+      BinaererBaum baum = this;
+      while(baum.getBaumR() != null) {
+          baum = baum.getBaumR();
+      }
+      return baum.getWert();
+    }
+
     public int min() {
         BinaererBaum baum = this;
         while(baum.getBaumL() != null) {
             baum = baum.getBaumL();
-            System.out.println("A");
         }
         return baum.getWert();
     }
