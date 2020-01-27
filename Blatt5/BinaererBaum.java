@@ -127,6 +127,25 @@ public class BinaererBaum {
         }
     }
 
+    public boolean isDegenerate() {
+        boolean ergebnis;
+        if(isLeaf()) {
+            return true;
+        }
+        if(baumL == null && baumR != null) {
+            ergebnis = baumR.isDegenerate();
+        }
+        else {
+            if(baumR == null && baumL != null) {
+                ergebnis = baumL.isDegenerate();
+            }
+            else {
+                ergebnis = false;
+            }
+        }
+        return ergebnis;
+    }
+
     public int max() {
       BinaererBaum baum = this;
       while(baum.getBaumR() != null) {
