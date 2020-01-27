@@ -98,6 +98,35 @@ public class BinaererBaum {
         }
     }
 
+    public boolean exist(int nWert) {
+        boolean r;
+        boolean l;
+        if(wert == nWert) {
+            return true;
+        }
+        if(isLeaf()) {
+            return false;
+        }
+        if(baumR != null) {
+            r = baumR.exist(nWert);
+        }
+        else {
+            r = false;
+        }
+        if(baumL != null) {
+            l = baumL.exist(nWert);
+        }
+        else {
+            l = false;
+        }
+        if(l || r) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
     public boolean isLeaf() {
         if(baumL == null && baumR == null) {
             return true;
