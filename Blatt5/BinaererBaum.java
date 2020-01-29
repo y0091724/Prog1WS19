@@ -28,8 +28,8 @@ public class BinaererBaum {
                     baumL.insert(nWert);
                 }
             }
-       
-           
+
+
         }
     }
 
@@ -58,9 +58,14 @@ public class BinaererBaum {
                         baum = baum.getBaumL();
                     }
                 }
-                
+                else {
+                    if(baum.getWert() == nWert) {
+                        boo = true;
+                    }
                 }
-            
+
+                }
+
         }
     }
 
@@ -163,7 +168,25 @@ public class BinaererBaum {
         return false;
     }
 
-		interface praedikat {
+		public boolean alleKleinerAlsZwanzig(kleinerAlsZwanzig kaZ) {
+        if(isLeaf()) {
+            return kaZ.kleiner(wert);
+        }
+        boolean r = true;
+        boolean l = true;
+        if(baumL != null) {
+            l = baumL.alleKleinerAlsZwanzig(kaZ);
+        }
+        if(baumR != null) {
+            r = baumR.alleKleinerAlsZwanzig(kaZ);
+        }
+        if(r && l) {
+           return true;
+        }
+        else {
+            return false;
+        }
+    }
 
     public String toString() {
         String links;
