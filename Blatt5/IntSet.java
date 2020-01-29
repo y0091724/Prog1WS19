@@ -18,33 +18,6 @@ public class IntSet {
     }
 
     public IntSet union(IntSet andere) {
-        /*
-        IntSet nSet = this;
-        if(andere.getBaum() != null) {
-            return nSet;
-        }
-        else {
-            boolean boo = false;
-            BinaererBaum nBaum = andere.getBaum();
-            while(boo) {
-                baum.insert(andere.getBaum());
-                if(andere.getBaum().getBaumL() != null) {
-                    nBaum = andere.getBaum().getBaumL();
-                }
-
-            }
-        }
-
-        IntSet nSet = this;
-        BinaererBaum =
-        if(andere.getBaum().isLeaf()) {
-            nSet.insert(andere.getBaum().getWert());
-        }
-        if(andere.getBaum().getBaumL() != null) {
-
-        }
-        */
-
         int x;
         boolean boo = false;
         IntSet nSet = this;
@@ -64,8 +37,6 @@ public class IntSet {
             }
         }
         return nSet;
-
-
     }
 
     /*public IntSet intersection(Inset andere) {
@@ -77,8 +48,6 @@ public class IntSet {
     }
 
     public String toString() {
-        String ausgabe = baum.toString();
-        ausgabe.replace("(",",");
-        return "a";
+      return "a";
     }
 }
